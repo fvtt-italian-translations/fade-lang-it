@@ -132,8 +132,9 @@ function getHandle(
 }
 
 async function getChanges(git: Octokit, refFrom: string, refTo: string) {
+  const ref = refFrom ? `${refFrom}..${refTo}` : ``;
   let { stdout, stderr } = await exec(
-    `git log ${refFrom}..${refTo} --format="%s----%H----%an"`
+    `git log ${ref} --format="%s----%H----%an"`
   );
 
   const commits = stdout
@@ -151,8 +152,9 @@ async function getChanges(git: Octokit, refFrom: string, refTo: string) {
 }
 
 async function getSourcesAuthors(git: Octokit, refFrom: string, refTo: string) {
+  const ref = refFrom ? `${refFrom}..${refTo}` : ``;
   let { stdout, stderr } = await exec(
-    `git log ${refFrom}..${refTo} --format="%an----%H----%s" -- trad/it`,
+    `git log ${ref} --format="%an----%H----%s" -- lang/it`,
     { cwd: path.resolve("./sources") }
   );
   stdout = stdout.trim();
