@@ -92,6 +92,5 @@ jobs:
           allowUpdates: false
           draft: false
           prerelease: ${{ env.RELEASE_PRERELEASE }}
-          token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "./dist/module.json,./dist/module.zip"
           tag: ${{ env.RELEASE_TAG }}
