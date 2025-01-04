@@ -59,6 +59,7 @@ jobs:
           fi
 
       - id: release
+        continue-on-error: true
         uses: pozetroninc/github-action-get-latest-release@v0.8.0
         with:
           repository: ${{ github.repository }}
@@ -67,7 +68,7 @@ jobs:
 
       - name: Release Tag
         run: |
-          echo "LAST_RELEASE_TAG=${{ steps.release.outputs.release }}" >> $GITHUB_ENV
+          echo "LAST_RELEASE_TAG=${{ steps.release.outcome !='success' && '' || steps.release.outputs.release }}" >> $GITHUB_ENV
 
       - name: Zip Files
         working-directory: ./dist
