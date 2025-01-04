@@ -87,7 +87,6 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           name: ${{ env.MODULE_VERSION }}
-          repo: ${{ github.repository }}
           bodyFile: ./dist/release.md
           allowUpdates: false
           draft: false
