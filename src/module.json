@@ -1,0 +1,55 @@
+{
+  "id": "fade-lang-it",
+  "title": "Italian Translation of Fantastic Depths Compendiums",
+  "version": "0.7.11.0",
+  "compatibility": {
+    "minimum": "12.327",
+    "verified": "12.327",
+    "maximum": "12"
+  },
+  "authors": [
+    { "name": "n1xx1" },
+    { "name": "FR4NC35CO" },
+    { "name": "Paolo Benedetti" }
+  ],
+  "description": "",
+  "relationships": {
+    "systems": [
+      {
+        "id": "fantastic-depths",
+        "type": "system",
+        "compatibility": {}
+      }
+    ],
+    "requires": [
+      {
+        "id": "fade-compendiums",
+        "type": "module",
+        "compatibility": {
+          "minimum": "0.7.11",
+          "verified": "0.7.11"
+        }
+      },
+      {
+        "id": "babele",
+        "type": "module",
+        "compatibility": {
+          "minimum": "2.5.5",
+          "verified": "2.5.5"
+        }
+      },
+      {
+        "id": "lib-wrapper",
+        "type": "module",
+        "compatibility": {
+          "minimum": "1.0.0.0",
+          "verified": "1.12.14.0"
+        }
+      }
+    ]
+  },
+  "esmodules": ["module.js"],
+  "scripts": [],
+  "packFolders": [],
+  "packs": []
+}

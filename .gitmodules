@@ -1,0 +1,3 @@
+[submodule "sources"]
+	path = sources
+	url = ../../fvtt-italian-translations/fade-compendium-sources.git

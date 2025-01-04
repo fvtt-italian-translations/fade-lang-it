@@ -1,0 +1,92 @@
+name: Module CD
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Get pnpm Store Directory
+        id: pnpm-cache
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Cache pnpm Deps
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-
+
+      - name: Install pnpm Deps
+        run: pnpm install
+
+      - name: Build Scripts
+        run: pnpm run build:scripts
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Get Versions
+        run: |
+          moduleVersion=$(grep -oP '(?<="version": ")[^"]+' dist/module.json | tr -d '\n')
+          compendiumVersion=$(cat sources/version.txt | tr -d '\n')
+          moduleVersionPrefix=$(echo $moduleVersion | grep -oP '^\d+\.\d+')
+
+          echo "MODULE_VERSION=$moduleVersion" >> $GITHUB_ENV
+          echo "MODULE_VERSION_PREFIX=$moduleVersionPrefix" >> $GITHUB_ENV
+          echo "COMPENDIUM_VERSION=$compendiumVersion" >> $GITHUB_ENV
+          echo "RELEASE_TAG=${moduleVersionPrefix}.${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
+
+          if [[ $moduleVersion =~ "-" ]]; then
+          echo "RELEASE_PRERELEASE=true" >> $GITHUB_ENV
+          fi
+
+      - id: release
+        uses: pozetroninc/github-action-get-latest-release@v0.8.0
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          excludes: ${{ env.RELEASE_PRERELEASE && '' || 'prerelease' }}
+
+      - name: Release Tag
+        run: |
+          echo "LAST_RELEASE_TAG=${{ steps.release.outputs.release }}" >> $GITHUB_ENV
+
+      - name: Zip Files
+        working-directory: ./dist
+        run: zip -r ./module.zip ./*
+
+      - name: Release Notes
+        run: pnpm run release-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Version Release
+        id: create_version_release
+        uses: ncipollo/release-action@v1
+        with:
+          name: ${{ env.MODULE_VERSION }}
+          bodyFile: ./dist/release.md
+          allowUpdates: false
+          draft: false
+          prerelease: ${{ env.RELEASE_PRERELEASE }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "./dist/module.json,./dist/module.zip"
+          tag: ${{ env.RELEASE_TAG }}

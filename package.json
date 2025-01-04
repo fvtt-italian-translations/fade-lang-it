@@ -1,0 +1,33 @@
+{
+  "name": "pf2e-lang-it",
+  "private": "true",
+  "type": "module",
+  "scripts": {
+    "build:scripts": "esbuild scripts/build.ts scripts/release-notes.ts --bundle --outdir=tmp --platform=node --format=esm --external:./node_modules/*",
+    "build": "node tmp/build.js",
+    "release-notes": "node tmp/release-notes.js"
+  },
+  "devDependencies": {
+    "@octokit/core": "^4.2.0",
+    "@types/jquery": "^3.5.31",
+    "@types/node": "^18.11.18",
+    "esbuild": "^0.17.2",
+    "foundry-types": "https://gitpkg.vercel.app/foundryvtt/pf2e/types/foundry?master"
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "foundry-types": {
+        "dependencies": {
+          "@types/jquery": "^3.5.14",
+          "@types/node": "^18.11.12",
+          "pixi.js": "6.5.2",
+          "socket.io": "^4.5.1",
+          "socket.io-client": "^4.5.1",
+          "tinymce": "^6.1.2",
+          "typescript": "^5.3.3"
+        }
+      }
+    }
+  },
+  "packageManager": "pnpm@9.5.0"
+}

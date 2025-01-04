@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "strict": true,
+    "types": ["jquery", "node", "foundry-types"]
+  },
+  "include": ["src", "scripts"]
+}
