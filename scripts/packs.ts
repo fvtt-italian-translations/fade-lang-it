@@ -1,6 +1,6 @@
 import { CompendiumMappingDefinition } from "../src/types/babele";
 
-const ID = "pf2e-lang-it";
+const ID = "fade-lang-it";
 
 const actorMappings: CompendiumMappingDefinition = {
   name: "name",

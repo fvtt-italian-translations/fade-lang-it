@@ -79,8 +79,8 @@ async function getLastSourcesHash(git: Octokit, lastReleaseTag: string) {
   const { data: lastSubmoduleHashData } = await git.request(
     "GET /repos/{owner}/{repo}/contents/{path}",
     {
-      owner: "n1xx1",
-      repo: "pf2e-lang-it",
+      owner: githubOwner,
+      repo: githubRepo,
       path: "sources",
       ref: lastReleaseTag,
     }
