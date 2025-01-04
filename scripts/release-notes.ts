@@ -76,6 +76,9 @@ async function getCurrentSourcesHash() {
 }
 
 async function getLastSourcesHash(git: Octokit, lastReleaseTag: string) {
+  if (!lastReleaseTag) {
+    return "";
+  }
   const { data: lastSubmoduleHashData } = await git.request(
     "GET /repos/{owner}/{repo}/contents/{path}",
     {
