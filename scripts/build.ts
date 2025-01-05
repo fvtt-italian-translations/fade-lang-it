@@ -51,6 +51,8 @@ await copyJsonFile(moduleJson, distModuleJson, (json) => {
 // translation files
 
 const languageCode = "it";
+const compendiumId = "fade-compendiums";
+
 const tradPath = pathJoin(cwd, "sources", "lang", languageCode);
 
 const distLang = pathJoin(outdir, "lang");
@@ -61,7 +63,7 @@ const distLangCompendiums = pathJoin(distLang, "compendiums");
 await fsMkdir(distLangCompendiums);
 for (const [id, mapping] of Object.entries(packs)) {
   const source = pathJoin(tradCompendiumPath, `${id}.json`);
-  const dist = pathJoin(distLangCompendiums, `${languageCode}.${id}.json`);
+  const dist = pathJoin(distLangCompendiums, `${compendiumId}.${id}.json`);
 
   await copyJsonFile<BabeleCompendium>(source, dist, (contents) => {
     if (!contents?.label) {
