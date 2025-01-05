@@ -11,7 +11,8 @@
     "@octokit/core": "^4.2.0",
     "@types/jquery": "^3.5.31",
     "@types/node": "^18.11.18",
-    "esbuild": "^0.17.2"
+    "esbuild": "^0.17.2",
+    "foundry-types": "https://gitpkg.vercel.app/foundryvtt/pf2e/types/foundry?master"
   },
   "pnpm": {
     "packageExtensions": {
