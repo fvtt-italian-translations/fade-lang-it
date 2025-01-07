@@ -58,6 +58,10 @@ const tradPath = pathJoin(cwd, "sources", "lang", languageCode);
 const distLang = pathJoin(outdir, "lang");
 await fsMkdir(distLang);
 
+const tradLangPath = pathJoin(tradPath, `${languageCode}.json`);
+const distLangPath = pathJoin(distLang, `${languageCode}.json`);
+await copyJsonFile(tradLangPath, distLangPath);
+
 const tradCompendiumPath = pathJoin(tradPath, "compendium");
 const distLangCompendiums = pathJoin(distLang, "compendiums");
 await fsMkdir(distLangCompendiums);

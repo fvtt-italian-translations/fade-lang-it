@@ -13,6 +13,13 @@
     { "name": "WingFireBlade" }
   ],
   "description": "",
+  "languages": [
+    {
+      "lang": "it",
+      "name": "Italian",
+      "path": "lang/it.json"
+    }
+  ],
   "relationships": {
     "systems": [
       {
