@@ -1,9 +1,9 @@
 {
   "id": "fade-lang-it",
   "title": "Italian Translation of Fantastic Depths Compendiums",
-  "version": "0.7.11.1",
+  "version": "0.7.20.0-alpha.0",
   "compatibility": {
-    "minimum": "12.327",
+    "minimum": "11",
     "verified": "12.327",
     "maximum": "12"
   },
