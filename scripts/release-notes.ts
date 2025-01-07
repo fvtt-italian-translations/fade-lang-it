@@ -10,12 +10,13 @@ const githubOwner = "fvtt-italian-translations";
 const githubRepo = "fade-lang-it";
 
 const githubSourcesOwner = "fvtt-italian-translations";
-const githubSourcesRepo = "fade-compendium-sources";
+const githubSourcesRepo = "fade-lang-sources";
 
 async function main() {
   const repoUrl = `https://github.com/${githubOwner}/${githubRepo}`;
 
   const moduleVersion = process.env.MODULE_VERSION as string;
+  const systemVersion = process.env.SYSTEM_VERSION as string;
   const compendiumVersion = process.env.COMPENDIUM_VERSION as string;
   const releaseTag = process.env.RELEASE_TAG as string;
   const lastReleaseTag = process.env.LAST_RELEASE_TAG as string;
@@ -44,7 +45,8 @@ async function main() {
 # Information
 
 * Module Version: \`${moduleVersion}\`
-* Fade Compendium Version: \`${compendiumVersion}\`
+* Fantastic Depths Version: \`${systemVersion}\`
+* Fantastic Depths Compendium Version: \`${compendiumVersion}\`
 * Tag: \`${releaseTag}\`
 
 # Module Changes

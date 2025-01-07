@@ -49,11 +49,13 @@ jobs:
       - name: Get Versions
         run: |
           moduleVersion=$(grep -oP '(?<="version": ")[^"]+' dist/module.json | tr -d '\n')
-          compendiumVersion=$(cat sources/version.txt | tr -d '\n')
+          systemVersion=$(cat sources/version_system.txt | tr -d '\n')
+          compendiumVersion=$(cat sources/version_compendium.txt | tr -d '\n')
           moduleVersionPrefix=$(echo $moduleVersion | grep -oP '^\d+\.\d+')
 
           echo "MODULE_VERSION=$moduleVersion" >> $GITHUB_ENV
           echo "MODULE_VERSION_PREFIX=$moduleVersionPrefix" >> $GITHUB_ENV
+          echo "SYSTEM_VERSION=$systemVersion" >> $GITHUB_ENV
           echo "COMPENDIUM_VERSION=$compendiumVersion" >> $GITHUB_ENV
           echo "RELEASE_TAG=${moduleVersionPrefix}.${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
 
