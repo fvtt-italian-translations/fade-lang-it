@@ -1,11 +1,15 @@
-import { BabeleConverter, CompendiumMapping } from "./types/babele";
+import type {
+  BabeleConverter,
+  CompendiumMappingDefinition,
+  CompendiumMapping as CompendiumMappingClass,
+} from "./types/babele";
 
-let dynamicMapping: CompendiumMapping | null = null;
+interface CompendiumMapping extends CompendiumMappingClass {}
+let CompendiumMapping: typeof CompendiumMappingClass = null!;
 
 export function hackCompendiumMappingClass() {
   const tc = game.babele.packs.contents[0];
-  const CompendiumMapping: any = tc.mapping.constructor;
-  dynamicMapping = new CompendiumMapping("Item");
+  CompendiumMapping = tc.mapping.constructor as any;
 }
 
 // translations can be either an array of translations or an object
@@ -23,7 +27,8 @@ const sourceIdRegex =
 // parse a sourceId reference (supports sub-items) and
 // return the matching translation and mapping
 function findTranslationSource(
-  sourceId: string
+  sourceId: string,
+  getItemMapping: MappingCache
 ): null | [any, CompendiumMapping] {
   const m = sourceId.match(sourceIdRegex);
   if (!m) {
@@ -73,57 +78,101 @@ function findTranslationSource(
   const name = items?.find((item: any) => item._id == itemId);
   return [
     getTranslationForItem({ _id: itemId, name }, referencedTranslation.items),
-    dynamicMapping!,
+    getItemMapping(),
   ];
 }
 
-export const fromPack: BabeleConverter<any[]> = (items, translations) => {
-  return items.map((data) => {
-    let translationData;
-    let translationSource;
+type MappingInitializer =
+  | CompendiumMapping
+  | CompendiumMappingDefinition
+  | (() => CompendiumMapping | CompendiumMappingDefinition | undefined);
 
-    if (translations) {
-      const translation = getTranslationForItem(data, translations);
-      if (translation) {
-        const { _source, ...rest } = translation;
-        translationData = dynamicMapping!.map(data, rest);
-        translationSource = _source ? `Compendium.${_source}` : null;
+type MappingCache = () => CompendiumMapping;
+
+function makeMappingCache(
+  type: string,
+  mapping?: MappingInitializer
+): MappingCache {
+  let cachedMapping: CompendiumMapping | null = null;
+  return () => {
+    return (cachedMapping ??= (() => {
+      if (!mapping) {
+        return new CompendiumMapping(type);
       }
-    }
-
-    const sourceId = translationSource ?? data._stats?.compendiumSource;
-    if (sourceId) {
-      const found = findTranslationSource(sourceId);
-      if (found) {
-        const [translationData1, mapping] = found;
-        translationData = foundry.utils.mergeObject(
-          mapping.map(data, translationData1),
-          translationData
-        );
+      if (mapping instanceof CompendiumMapping) {
+        return mapping;
       }
-    }
+      if (typeof mapping === "function") {
+        const mapping1 = mapping();
+        if (!mapping1) {
+          return new CompendiumMapping(type);
+        }
+        if (mapping1 instanceof CompendiumMapping) {
+          return mapping1;
+        }
+        return new CompendiumMapping(type, mapping1);
+      }
+      return new CompendiumMapping(type, mapping);
+    })());
+  };
+}
 
-    if (!translationData) {
-      return data;
-    }
+export function makeFromPack(
+  mapping?: MappingInitializer
+): BabeleConverter<any[]> {
+  const getItemMapping = makeMappingCache("Item", mapping);
 
-    return foundry.utils.mergeObject(
-      data,
-      foundry.utils.mergeObject(
-        translationData,
-        {
-          translated: true,
-          flags: {
-            babele: {
-              translated: true,
-              hasTranslation: true,
-              originalName: data.name,
+  return (items, translations) => {
+    return items.map((data) => {
+      let translationData;
+      let translationSource;
+
+      if (translations) {
+        const translation = getTranslationForItem(data, translations);
+        if (translation) {
+          const { _source, ...rest } = translation;
+
+          translationData = getItemMapping().map(data, rest);
+          translationSource = _source ? `Compendium.${_source}` : null;
+        }
+      }
+
+      const sourceId = translationSource ?? data._stats?.compendiumSource;
+      if (sourceId) {
+        const found = findTranslationSource(sourceId, getItemMapping);
+        if (found) {
+          const [translationData1, mapping] = found;
+          translationData = foundry.utils.mergeObject(
+            mapping.map(data, translationData1),
+            translationData
+          );
+        }
+      }
+
+      if (!translationData) {
+        return data;
+      }
+
+      return foundry.utils.mergeObject(
+        data,
+        foundry.utils.mergeObject(
+          translationData,
+          {
+            translated: true,
+            flags: {
+              babele: {
+                translated: true,
+                hasTranslation: true,
+                originalName: data.name,
+              },
             },
           },
-        },
+          { inplace: false }
+        ),
         { inplace: false }
-      ),
-      { inplace: false }
-    );
-  });
-};
+      );
+    });
+  };
+}
+
+export const fromPack: BabeleConverter<any[]> = makeFromPack();

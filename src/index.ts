@@ -1,4 +1,8 @@
-import { fromPack, hackCompendiumMappingClass } from "./converter-from-pack";
+import {
+  fromPack,
+  hackCompendiumMappingClass,
+  makeFromPack,
+} from "./converter-from-pack";
 import { removeMismatchingTypes } from "./utils";
 
 export const LANG = "it";
@@ -16,7 +20,9 @@ Hooks.once("init", () => {
   });
 
   game.babele.registerConverters({
-    [`${ID}-fromPack`]: fromPack,
+    [`${ID}-fromPack`]: makeFromPack(
+      () => game.babele.packs.get("fade-compendiums.item-compendium")?.mapping
+    ),
   });
 });
 
