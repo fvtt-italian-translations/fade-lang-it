@@ -3,11 +3,6 @@ export function removeMismatchingTypes(fallback: any, other: any = {}) {
     const replacement = other[k];
     const replacementType = foundry.utils.getType(replacement);
 
-    if (!fallback.hasOwnProperty(k)) {
-      delete other[k];
-      continue;
-    }
-
     const original = fallback[k];
     const originalType = foundry.utils.getType(original);
 
