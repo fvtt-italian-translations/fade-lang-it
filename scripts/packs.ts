@@ -9,12 +9,31 @@ const actorMappings: CompendiumMappingDefinition = {
     path: "items",
     converter: `${ID}-fromPack`,
   },
+  gmNotes: "system.gm.notes",
+  monsterType: "system.details.monsterType",
+  alignment: {
+    path: "system.details.alignment",
+    converter: `${ID}-alignment`,
+  },
+  size: {
+    path: "system.details.size",
+    converter: `${ID}-size`,
+  },
 };
 
 const itemMappings: CompendiumMappingDefinition = {
   name: "name",
   description: "system.description",
   gmNotes: "system.gm.notes",
+  spellRange: {
+    path: "system.range",
+    converter: `${ID}-spellRange`,
+  },
+  spellDuration: {
+    path: "system.duration",
+    converter: `${ID}-spellDuration`,
+  },
+  spellEffect: "system.effect",
 };
 
 export const packs: Record<string, CompendiumMappingDefinition> = {

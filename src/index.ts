@@ -23,6 +23,18 @@ Hooks.once("init", () => {
     [`${ID}-fromPack`]: makeFromPack(
       () => game.babele.packs.get("fade-compendiums.item-compendium")?.mapping
     ),
+    [`${ID}-alignment`]: (original, ...args) => {
+      return original;
+    },
+    [`${ID}-size`]: (original, ...args) => {
+      return original;
+    },
+    [`${ID}-spellRange`]: (original, ...args) => {
+      return original;
+    },
+    [`${ID}-spellDuration`]: (original, ...args) => {
+      return original;
+    },
   });
 });
 
