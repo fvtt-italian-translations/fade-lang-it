@@ -27,7 +27,10 @@ Hooks.once("init", () => {
       if (translated) {
         return translated;
       }
-      original = (original as string).trim();
+      if (typeof original !== "string") {
+        return original;
+      }
+      original = original.trim();
       return translateWithFallback(
         `FADE_TRANSLATIONS.monsterAlignment.${original}`,
         original
@@ -37,7 +40,10 @@ Hooks.once("init", () => {
       if (translated) {
         return translated;
       }
-      original = (original as string).trim();
+      if (typeof original !== "string") {
+        return original;
+      }
+      original = original.trim();
       return translateWithFallback(
         `FADE_TRANSLATIONS.monsterSize.${original}`,
         original
@@ -47,7 +53,10 @@ Hooks.once("init", () => {
       if (translated) {
         return translated;
       }
-      original = (original as string).trim();
+      if (typeof original !== "string") {
+        return original;
+      }
+      original = original.trim();
       if (translatedSpellRange.includes(original)) {
         return translateWithFallback(
           `FADE_TRANSLATIONS.spellRange.${original}`,
@@ -60,7 +69,10 @@ Hooks.once("init", () => {
       if (translated) {
         return translated;
       }
-      original = (original as string).trim();
+      if (typeof original !== "string") {
+        return original;
+      }
+      original = original.trim();
       if (translatedSpellDuration.includes(original)) {
         return translateWithFallback(
           `FADE_TRANSLATIONS.spellDuration.${original}`,
