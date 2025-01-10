@@ -23,20 +23,65 @@ Hooks.once("init", () => {
     [`${ID}-fromPack`]: makeFromPack(
       () => game.babele.packs.get("fade-compendiums.item-compendium")?.mapping
     ),
-    [`${ID}-alignment`]: (original, ...args) => {
+    [`${ID}-alignment`]: (original, translated) => {
+      if (translated) {
+        return translated;
+      }
+      original = (original as string).trim();
+      return translateWithFallback(
+        `FADE_TRANSLATIONS.monsterAlignment.${original}`,
+        original
+      );
+    },
+    [`${ID}-size`]: (original, translated) => {
+      if (translated) {
+        return translated;
+      }
+      original = (original as string).trim();
+      return translateWithFallback(
+        `FADE_TRANSLATIONS.monsterSize.${original}`,
+        original
+      );
+    },
+    [`${ID}-spellRange`]: (original, translated) => {
+      if (translated) {
+        return translated;
+      }
+      original = (original as string).trim();
+      if (translatedSpellRange.includes(original)) {
+        return translateWithFallback(
+          `FADE_TRANSLATIONS.spellRange.${original}`,
+          original
+        );
+      }
       return original;
     },
-    [`${ID}-size`]: (original, ...args) => {
-      return original;
-    },
-    [`${ID}-spellRange`]: (original, ...args) => {
-      return original;
-    },
-    [`${ID}-spellDuration`]: (original, ...args) => {
+    [`${ID}-spellDuration`]: (original, translated) => {
+      if (translated) {
+        return translated;
+      }
+      original = (original as string).trim();
+      if (translatedSpellDuration.includes(original)) {
+        return translateWithFallback(
+          `FADE_TRANSLATIONS.spellDuration.${original}`,
+          original
+        );
+      }
       return original;
     },
   });
 });
+
+function translateWithFallback(key: string, fallback: string) {
+  if (game.i18n.has(key)) {
+    return game.i18n.localize(key);
+  }
+  return fallback;
+}
+
+const translatedSpellRange = ["Touch", "Personal"];
+
+const translatedSpellDuration = ["Instantaneous", "Permanent", "Concentration"];
 
 Hooks.once("ready", () => {});
 
