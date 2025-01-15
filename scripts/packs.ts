@@ -34,6 +34,14 @@ const itemMappings: CompendiumMappingDefinition = {
     converter: `${ID}-spellDuration`,
   },
   spellEffect: "system.effect",
+  classLevels: {
+    path: "system.levels",
+    converter: `${ID}-classLevels`,
+  },
+  classSpecies: {
+    path: "system.species",
+    converter: `${ID}-classSpecies`,
+  },
 };
 
 export const packs: Record<string, CompendiumMappingDefinition> = {

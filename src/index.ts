@@ -81,6 +81,31 @@ Hooks.once("init", () => {
       }
       return original;
     },
+    [`${ID}-classLevels`]: (original, translated) => {
+      if (!Array.isArray(original) || !translated) {
+        return original;
+      }
+      return original.map((data, index) => {
+        const translation = translated[`${index}`];
+        if (!translation) {
+          return data;
+        }
+        return foundry.utils.mergeObject(data, translation);
+      });
+    },
+    [`${ID}-classSpecies`]: (original, translated) => {
+      if (translated) {
+        return translated;
+      }
+      if (typeof original !== "string") {
+        return original;
+      }
+      original = original.trim();
+      return translateWithFallback(
+        `FADE_TRANSLATIONS.classSpecies.${original}`,
+        original
+      );
+    },
   });
 });
 
