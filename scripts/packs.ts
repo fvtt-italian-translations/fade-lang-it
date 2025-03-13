@@ -25,6 +25,9 @@ const itemMappings: CompendiumMappingDefinition = {
   name: "name",
   description: "system.description",
   gmNotes: "system.gm.notes",
+  shortName: "system.shortName",
+  unidentifiedName: "system.unidentifiedName",
+  unidentifiedDesc: "system.unidentifiedDesc",
   spellRange: {
     path: "system.range",
     converter: `${ID}-spellRange`,
