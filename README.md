@@ -7,8 +7,8 @@ Traduzione del Sistema **Fantastic Depths** per FoundryVTT
 
 **Sistema di Gioco** Installa dall'archivio Sistemi di Gioco di Foundry o:
 - :dragon: **Fantastic Depths** https://github.com/Forelius/fantastic-depths
---:floppy_disk:Installazione Manuale (Stabile): https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/stable/system.json
--- :floppy_disk:*Installazione Manuale (Pre-Release)* se vuoi godere degli aggiornamenti ancora in fase di test: https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/main/system.json
+:floppy_disk: Installazione Manuale (Stabile): https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/stable/system.json
+:floppy_disk: *Installazione Manuale (Pre-Release)* se vuoi godere degli aggiornamenti ancora in fase di test: https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/main/system.json
 
 **Moduli necessari**
 - :books: **Fantastic Depths Compendiums** https://github.com/Forelius/fade-compendiums
