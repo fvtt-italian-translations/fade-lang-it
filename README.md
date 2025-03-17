@@ -15,7 +15,7 @@ Traduzione del Sistema **Fantastic Depths** per FoundryVTT
 - :books: **FaDe ITA** https://github.com/fvtt-italian-translations/fade-lang-it/releases
 - :globe_with_meridians: **Babele **https://gitlab.com/riccisi/foundryvtt-babele
 
-:desktop: Siamo sul server Discord di **20diGuerra**! https://discord.gg/Suxh2jnPst
+  Siamo sul server Discord di **20diGuerra**! https://discord.gg/Suxh2jnPst
 
 -*Fondatore e coordinatore progetto e traduzioni FaDe ITA*: **FR4NC35C0**
 -*Realizzazione e gestione tecnica di GitHub e Weblate*: **N1xx1**
