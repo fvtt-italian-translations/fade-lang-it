@@ -1,6 +1,6 @@
 # FaDe ITA - Traduzione del Sistema e Compendi di Fantastic Depths per FoundryVTT
 
-[![Translation status](https://weblate.n1xx1.me/widget/fantastic-depths/-/it/svg-badge.svg)](https://weblate.n1xx1.me/engage/fantastic-depths/-/it/) https://camo.githubusercontent.com/643e0e73855c555f22a28f84e3f130f80c21b2de1935d6349888a689178e6a4f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666f756e6472792d7631322d677265656e [Foundry v11](https://camo.githubusercontent.com/d6d7386f6101288c0a6eea6390200e6545d500225540fb9dc4d31534c60f2616/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666f756e6472792d7631312d677265656e)  [Foundry v12](https://camo.githubusercontent.com/643e0e73855c555f22a28f84e3f130f80c21b2de1935d6349888a689178e6a4f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666f756e6472792d7631322d677265656e)
+[![Translation status](https://weblate.n1xx1.me/widget/fantastic-depths/-/it/svg-badge.svg)](https://weblate.n1xx1.me/engage/fantastic-depths/-/it/) [Foundry v11](https://camo.githubusercontent.com/d6d7386f6101288c0a6eea6390200e6545d500225540fb9dc4d31534c60f2616/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666f756e6472792d7631312d677265656e) [Foundry v12](https://camo.githubusercontent.com/643e0e73855c555f22a28f84e3f130f80c21b2de1935d6349888a689178e6a4f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666f756e6472792d7631322d677265656e)
 
 **Sistema di Gioco** Installa dall'archivio Sistemi di Gioco di Foundry o:
 - :dragon: **Fantastic Depths** https://github.com/Forelius/fantastic-depths
