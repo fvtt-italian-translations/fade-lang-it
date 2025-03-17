@@ -6,7 +6,7 @@
 **Sistema di Gioco**: Installa dall'archivio di Foundry o:
 - :dragon: **Fantastic Depths** https://github.com/Forelius/fantastic-depths
 - :floppy_disk: Installazione Manuale (Stabile): https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/stable/system.json
-- :floppy_disk: *Installazione Manuale (Pre-Release)* se vuoi godere degli aggiornamenti ancora in fase di test: https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/main/system.json
+- :floppy_disk: *Installazione Manuale (Pre-Release)* se vuoi godere degli ultimi aggiornamenti ancora in fase di test: https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/main/system.json
 
 
 **Moduli necessari**
