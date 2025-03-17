@@ -10,7 +10,7 @@
 **Moduli necessari**
 - :books: **Fantastic Depths Compendiums** https://github.com/Forelius/fade-compendiums
 - :books: **FaDe ITA** https://github.com/fvtt-italian-translations/fade-lang-it/releases
-- :globe_with_meridians: **Babele **https://gitlab.com/riccisi/foundryvtt-babele
+- :globe_with_meridians: **Babele** https://gitlab.com/riccisi/foundryvtt-babele
 
 
 Siamo sul server Discord di **20diGuerra**! https://discord.gg/Suxh2jnPst
@@ -19,7 +19,7 @@ Siamo sul server Discord di **20diGuerra**! https://discord.gg/Suxh2jnPst
 *Realizzazione e gestione tecnica di GitHub e Weblate*: **N1xx1**
 *Collaboratori per la traduzione*: **Wingfireblade(Paolo)**
 
-Uno speciale ringraziamento a **Forelius** per aver fornito assistenza nella localizzazione dei testi per la traduzione del suo sistema di gioco e per la sua passione e dedizione nel creare e migliorare questo fantastico modulo per Foundry VTT, ispirato a Dark Dungeons, un retro-clone OGL dell'edizione Rules Cyclopedia di Dungeons & Dragons. Dark Dungeons è stato scritto da Blacky the Blackball, catturando l'essenza del D&D classico mentre modernizza e semplifica le regole per il gioco contemporaneo.
+_Uno speciale ringraziamento a **Forelius** per aver fornito assistenza nella localizzazione dei testi per la traduzione del suo sistema di gioco e per la sua passione e dedizione nel creare e migliorare questo fantastico modulo per Foundry VTT, ispirato a Dark Dungeons, un retro-clone OGL dell'edizione Rules Cyclopedia di Dungeons & Dragons. Dark Dungeons è stato scritto da Blacky the Blackball, catturando l'essenza del D&D classico mentre modernizza e semplifica le regole per il gioco contemporaneo._
 
 
 WIKI: https://github.com/Forelius/fantastic-depths/wiki
