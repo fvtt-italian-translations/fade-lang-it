@@ -39,11 +39,19 @@ const itemMappings: CompendiumMappingDefinition = {
   spellEffect: "system.effect",
   classLevels: {
     path: "system.levels",
-    converter: `${ID}-classLevels`,
+    converter: `${ID}-arrayConverter`,
   },
   classSpecies: {
     path: "system.species",
     converter: `${ID}-classSpecies`,
+  },
+  classAbilities: {
+    path: "system.classAbilities",
+    converter: `${ID}-arrayConverter`,
+  },
+  classItems: {
+    path: "system.classItems",
+    converter: `${ID}-arrayConverter`,
   },
 };
 

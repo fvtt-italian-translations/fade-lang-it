@@ -81,7 +81,7 @@ Hooks.once("init", () => {
       }
       return original;
     },
-    [`${ID}-classLevels`]: (original, translated) => {
+    [`${ID}-arrayConverter`]: (original, translated) => {
       if (!Array.isArray(original) || !translated) {
         return original;
       }
