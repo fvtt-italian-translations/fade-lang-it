@@ -1,16 +1,9 @@
+import { $B } from "./babele-hack";
 import type {
   BabeleConverter,
+  CompendiumMapping,
   CompendiumMappingDefinition,
-  CompendiumMapping as CompendiumMappingClass,
 } from "./types/babele";
-
-interface CompendiumMapping extends CompendiumMappingClass {}
-let CompendiumMapping: typeof CompendiumMappingClass = null!;
-
-export function hackCompendiumMappingClass() {
-  const tc = game.babele.packs.contents[0];
-  CompendiumMapping = tc.mapping.constructor as any;
-}
 
 // translations can be either an array of translations or an object
 function getTranslationForItem(data: any, translations: any) {
@@ -97,22 +90,22 @@ function makeMappingCache(
   return () => {
     return (cachedMapping ??= (() => {
       if (!mapping) {
-        return new CompendiumMapping(type);
+        return new $B.CompendiumMapping(type);
       }
-      if (mapping instanceof CompendiumMapping) {
+      if (mapping instanceof $B.CompendiumMapping) {
         return mapping;
       }
       if (typeof mapping === "function") {
         const mapping1 = mapping();
         if (!mapping1) {
-          return new CompendiumMapping(type);
+          return new $B.CompendiumMapping(type);
         }
-        if (mapping1 instanceof CompendiumMapping) {
+        if (mapping1 instanceof $B.CompendiumMapping) {
           return mapping1;
         }
-        return new CompendiumMapping(type, mapping1);
+        return new $B.CompendiumMapping(type, mapping1);
       }
-      return new CompendiumMapping(type, mapping);
+      return new $B.CompendiumMapping(type, mapping);
     })());
   };
 }

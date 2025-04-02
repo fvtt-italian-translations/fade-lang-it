@@ -32,16 +32,36 @@ export declare class Babele {
   modules: ModuleDefinition[];
   converters: Record<string, BabeleConverter>;
   packs: Collection<TranslatedCompendium>;
+  translations: any[];
 
+  supported(pack: CompendiumMetadata): boolean;
+  getCollection(metadata: CompendiumMetadata): string;
   register(module: ModuleDefinition): void;
-
   registerConverters(converters: Record<string, BabeleConverter>): void;
 }
 
-export declare class TranslatedCompendium {
-  mapping: CompendiumMapping;
+interface TranslationConfig {
+  label?: string;
+  reference?: string | string[];
+  entries?: any[] | Record<string, any>;
+  mapping?: Record<string, string | { path: string; converter: string }>;
+  folders?: Record<string, string>;
+  types?: string[];
+}
 
-  translationsFor(data: any): any;
+export declare class TranslatedCompendium {
+  metadata: CompendiumMetadata;
+  mapping: CompendiumMapping;
+  translations: Record<string, any>;
+  types: string[] | undefined;
+
+  constructor(
+    metadata: Partial<CompendiumMetadata>,
+    translations: TranslationConfig
+  );
+  hasTranslation(data: Record<string, any>): boolean;
+  hasReferenceTranslations(data: Record<string, any>): boolean;
+  translationsFor(data: Record<string, any>): Record<string, any>;
 }
 
 export declare class CompendiumMapping {

@@ -1,12 +1,52 @@
-import {
-  fromPack,
-  hackCompendiumMappingClass,
-  makeFromPack,
-} from "./converter-from-pack";
+import { $B, performBabeleHack } from "./babele-hack";
+import { makeFromPack } from "./converter-from-pack";
 import { removeMismatchingTypes } from "./utils";
 
 export const LANG = "it";
 export const ID = "fade-lang-it";
+
+Hooks.once("babele.ready", () => {
+  performBabeleHack();
+
+  class TranslatedCompendiumCustom extends $B.TranslatedCompendium {
+    hasTranslation(data: Record<string, any>): boolean {
+      if (this.types && !this.types.includes(data.type)) {
+        return false;
+      }
+      return (
+        !!this.translations[data._id] ||
+        !!this.translations[data.name] ||
+        !!this.translations[`${data.name}@${data._id}`] ||
+        this.hasReferenceTranslations(data)
+      );
+    }
+    translationsFor(data: Record<string, any>): Record<string, any> {
+      return (
+        this.translations[data._id] ||
+        this.translations[data.name] ||
+        this.translations[`${data.name}@${data._id}`] ||
+        {}
+      );
+    }
+  }
+  const addTranslations = (metadata: CompendiumMetadata) => {
+    const collection = game.babele.getCollection(metadata);
+    if (!collection.startsWith(`${ID}.`)) return;
+    if (!game.babele.supported(metadata)) return;
+    let translation = game.babele.translations.find(
+      (t) => t.collection === collection
+    );
+    if (!translation) return;
+    game.babele.packs.set(
+      collection,
+      new TranslatedCompendiumCustom(metadata, translation)
+    );
+    // ignore adventures
+  };
+  for (const metadata of game.data.packs) {
+    addTranslations(metadata);
+  }
+});
 
 Hooks.once("init", () => {
   if (!game.babele) {
@@ -126,8 +166,4 @@ Hooks.once("i18nInit", () => {
   if (game.i18n.lang === LANG) {
     removeMismatchingTypes(game.i18n._fallback, game.i18n.translations);
   }
-});
-
-Hooks.once("babele.ready", () => {
-  hackCompendiumMappingClass();
 });
