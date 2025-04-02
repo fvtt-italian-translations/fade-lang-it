@@ -37,13 +37,17 @@ const itemMappings: CompendiumMappingDefinition = {
     converter: `${ID}-spellDuration`,
   },
   spellEffect: "system.effect",
-  classLevels: {
-    path: "system.levels",
-    converter: `${ID}-arrayConverter`,
+  alignment: {
+    path: "system.alignment",
+    converter: `${ID}-alignment`,
   },
   classSpecies: {
     path: "system.species",
     converter: `${ID}-classSpecies`,
+  },
+  classLevels: {
+    path: "system.levels",
+    converter: `${ID}-arrayConverter`,
   },
   classAbilities: {
     path: "system.classAbilities",
@@ -53,6 +57,7 @@ const itemMappings: CompendiumMappingDefinition = {
     path: "system.classItems",
     converter: `${ID}-arrayConverter`,
   },
+  weaponMastery: "system.mastery",
 };
 
 export const packs: Record<string, CompendiumMappingDefinition> = {
