@@ -33,3 +33,6 @@ Siamo sul server Discord di **20diGuerra**! https://discord.gg/Suxh2jnPst
 I contenuti di questo modulo sono sotto le seguenti licenze:
 
 - [Limited License Agreement for module development 09/02/2020](https://foundryvtt.com/article/license/)
+
+***
+![FaDe-BECMI-1](https://github.com/user-attachments/assets/04726511-225a-4c8c-a879-b2140e76b51e)
