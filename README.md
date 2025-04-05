@@ -19,7 +19,7 @@
 ***
 Siamo sul server Discord di **20diGuerra**! https://discord.gg/Suxh2jnPst
    
-*Fondatore e coordinatore progetto e traduzioni FaDe ITA*: **FR4NC35C0**  
+*Fondatore e coordinatore progetto + traduzioni FaDe ITA*: **FR4NC35C0**  
 *Realizzazione e gestione tecnica di GitHub e Weblate*: **N1xx1**  
 *Collaboratori per la traduzione*: **Wingfireblade(Paolo)**  
 
