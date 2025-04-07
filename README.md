@@ -6,14 +6,12 @@
 
 ***  
 **Sistema di Gioco**: Installa dall'archivio di Foundry o:
-- :dragon: **Fantastic Depths** https://github.com/Forelius/fantastic-depths
-- :floppy_disk: Installazione Manuale (Stabile): https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/stable/system.json
-- :floppy_disk: *Installazione Manuale (Pre-Release)* se vuoi godere degli ultimi aggiornamenti ancora in fase di test: https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/main/system.json
+- :dragon: **Fantastic Depths** :floppy_disk: *Installazione Manuale (Ultima Pre-Release)* se vuoi godere degli ultimi aggiornamenti ancora in fase di test e compatibilita' con il modulo di traduzione italiana: https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/main/system.json
 
 
 **Moduli necessari**
-- :books: **Fantastic Depths Compendiums** https://github.com/Forelius/fade-compendiums
-- :books: **FaDe ITA** https://github.com/fvtt-italian-translations/fade-lang-it/releases
+- :books: **Fantastic Depths Compendiums** (Ultima Pre-Release) https://github.com/Forelius/fade-compendiums/releases
+- :books: **Italian Translation of FaDe** https://github.com/fvtt-italian-translations/fade-lang-it/releases
 - :globe_with_meridians: **Babele** https://gitlab.com/riccisi/foundryvtt-babele  
 
 ***
