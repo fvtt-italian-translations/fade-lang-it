@@ -49,8 +49,8 @@ const itemMappings: CompendiumMappingDefinition = {
     path: "system.levels",
     converter: `${ID}-arrayConverter`,
   },
-  classAbilities: {
-    path: "system.classAbilities",
+  specialAbilities: {
+    path: "system.specialAbilities",
     converter: `${ID}-arrayConverter`,
   },
   classItems: {
