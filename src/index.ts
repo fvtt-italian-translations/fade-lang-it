@@ -5,7 +5,7 @@ import { removeMismatchingTypes } from "./utils";
 export const LANG = "it";
 export const ID = "fade-lang-it";
 
-Hooks.once("babele.dataLoaded", () => {
+function onBabeleReady() {
   performBabeleHack();
 
   class TranslatedCompendiumCustom extends $B.TranslatedCompendium {
@@ -45,11 +45,17 @@ Hooks.once("babele.dataLoaded", () => {
   for (const metadata of game.data.packs) {
     addTranslations(metadata);
   }
-});
+}
 
 Hooks.once("init", () => {
   if (!game.babele) {
     return;
+  }
+
+  if (foundry.utils.isNewerVersion(game.version, "13.0")) {
+    Hooks.once("babele.dataLoaded", onBabeleReady);
+  } else {
+    Hooks.once("babele.ready", onBabeleReady);
   }
 
   game.babele.register({
