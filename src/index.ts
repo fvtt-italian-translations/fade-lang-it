@@ -5,7 +5,7 @@ import { removeMismatchingTypes } from "./utils";
 export const LANG = "it";
 export const ID = "fade-lang-it";
 
-Hooks.once("babele.ready", () => {
+Hooks.once("babele.dataLoaded", () => {
   performBabeleHack();
 
   class TranslatedCompendiumCustom extends $B.TranslatedCompendium {
