@@ -14,26 +14,25 @@ Hooks.once("babele.ready", () => {
         return false;
       }
       return (
+        !!this.translations[`${data.name}@${data._id}`] ||
         !!this.translations[data._id] ||
         !!this.translations[data.name] ||
-        !!this.translations[`${data.name}@${data._id}`] ||
         this.hasReferenceTranslations(data)
       );
     }
     translationsFor(data: Record<string, any>): Record<string, any> {
       return (
+        this.translations[`${data.name}@${data._id}`] ||
         this.translations[data._id] ||
         this.translations[data.name] ||
-        this.translations[`${data.name}@${data._id}`] ||
         {}
       );
     }
   }
   const addTranslations = (metadata: CompendiumMetadata) => {
     const collection = game.babele.getCollection(metadata);
-    if (!collection.startsWith(`${ID}.`)) return;
     if (!game.babele.supported(metadata)) return;
-    let translation = game.babele.translations.find(
+    const translation = game.babele.translations.find(
       (t) => t.collection === collection
     );
     if (!translation) return;
