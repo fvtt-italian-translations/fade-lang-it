@@ -1,16 +1,19 @@
 ![image](./assets/img/FaDe-ITA-banner.webp)
 
-# FaDe ITA - Traduzione del Sistema e Compendi di Fantastic Depths per FoundryVTT
+# FaDe ITA - Traduzione del Sistema di Gioco e Compendi di Fantastic Depths per FoundryVTT
 
-[![Translation status](https://weblate.n1xx1.me/widget/fantastic-depths/-/it/svg-badge.svg)](https://weblate.n1xx1.me/engage/fantastic-depths/-/it/) ![Foundry v11](https://camo.githubusercontent.com/d6d7386f6101288c0a6eea6390200e6545d500225540fb9dc4d31534c60f2616/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666f756e6472792d7631312d677265656e) ![Foundry v12](https://camo.githubusercontent.com/643e0e73855c555f22a28f84e3f130f80c21b2de1935d6349888a689178e6a4f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666f756e6472792d7631322d677265656e)    
+[![Translation status](https://weblate.n1xx1.me/widget/fantastic-depths/-/it/svg-badge.svg)](https://weblate.n1xx1.me/engage/fantastic-depths/-/it/) ![Foundry v11](https://camo.githubusercontent.com/d6d7386f6101288c0a6eea6390200e6545d500225540fb9dc4d31534c60f2616/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666f756e6472792d7631312d677265656e) ![Foundry v13](https://camo.githubusercontent.com/230d70c722009e2cfb63187f9843fdd97ac0f56c1420b675440aae35d40e2c2d/68747470733a2f2f696d672e736869656c64732e696f2f656e64706f696e743f75726c3d6874747073253341253246253246666f756e647279736869656c64732e636f6d25324676657273696f6e2533467374796c65253344706c617374696325323675726c25334468747470732533412532462532467261772e67697468756275736572636f6e74656e742e636f6d253246466f72656c69757325324666616e7461737469632d646570746873253246726566732532466865616473253246737461626c6525324673797374656d2e6a736f6e)
 
 ***  
 **Sistema di Gioco**: 
-- :dragon: **Fantastic Depths** :floppy_disk: Installa l'ultima Release STABILE da GitHub. Essendo le successive PRE-RELEASE NON ANCORA TRADOTTE ma vuoi godere degli ultimi aggiornamenti ancora in fase di test, il modulo di traduzione italiana non sara' completo, in attesa di aggiornamenti strutturali di FaDe core alla fvtt v13: https://raw.githubusercontent.com/Forelius/fantastic-depths/refs/heads/main/system.json
+- :dragon: **Fantastic Depths** :floppy_disk: https://github.com/Forelius/fantastic-depths/releases
+Installa l'ultima versione STABILE da GitHub.
+
+Se invece vuoi installare l'ultima PRE-RELEASE per usufruire delle recenti modifiche apportate al core, si raccomanda di installare anche l'ultima pre-release del FaDe Compendiums per visualizzare le traduzioni inserite nell'ultima pre-release di questo modulo. 
 
 
 **Moduli necessari**
-- :books: **Fantastic Depths Compendiums** *(Ultima Release STABILE)* https://github.com/Forelius/fade-compendiums/releases
+- :books: **Fantastic Depths Compendiums** *(Ultima Release STABILE o PRE-RELEASE)* https://github.com/Forelius/fade-compendiums/releases
 - :books: **Italian Translation of FaDe** *(Ultima Release)* https://github.com/fvtt-italian-translations/fade-lang-it/releases
 - :globe_with_meridians: **Babele** https://gitlab.com/riccisi/foundryvtt-babele  
 
