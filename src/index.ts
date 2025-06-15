@@ -52,6 +52,12 @@ Hooks.once("init", () => {
     return;
   }
 
+  if (game.i18n.lang === LANG) {
+    for (const actorSize of CONFIG.FADE.ActorSizes) {
+      actorSize.maxFeet = convertFeet(actorSize.maxFeet);
+    }
+  }
+
   if (foundry.utils.isNewerVersion(game.version, "13.0")) {
     Hooks.once("babele.dataLoaded", onBabeleReady);
   } else {
@@ -217,8 +223,8 @@ Hooks.once("init", () => {
   });
 });
 
-function convertFeet(feet: number | null | undefined) {
-  return feet && (feet / 5) * 1.5;
+function convertFeet<T extends number | null | undefined>(feet: T): T {
+  return (feet && (feet / 5) * 1.5) as T;
 }
 
 function translateWithFallback(key: string, fallback: string) {
