@@ -19,6 +19,10 @@ const actorMappings: CompendiumMappingDefinition = {
     path: "system.details.size",
     converter: `${ID}-size`,
   },
+  actorFeetConverter: {
+    path: "system",
+    converter: `${ID}-actorFeetConverter`,
+  },
 };
 
 const itemMappings: CompendiumMappingDefinition = {
@@ -58,6 +62,18 @@ const itemMappings: CompendiumMappingDefinition = {
     converter: `${ID}-arrayConverter`,
   },
   weaponMastery: "system.mastery",
+  lightRadiusConverter: {
+    path: "system",
+    converter: `${ID}-lightRadiusConverter`,
+  },
+  weaponRangeConverter: {
+    path: "system",
+    converter: `${ID}-weaponRangeConverter`,
+  },
+  weaponMasteryLevels: {
+    path: "system.levels",
+    converter: `${ID}-weaponMasteryLevels`,
+  },
 };
 
 export const packs: Record<string, CompendiumMappingDefinition> = {

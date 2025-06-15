@@ -151,8 +151,75 @@ Hooks.once("init", () => {
         original
       );
     },
+    [`${ID}-actorFeetConverter`]: (system) => {
+      return {
+        movement: {
+          day: convertFeet(system.movement.day),
+          max: convertFeet(system.movement.max),
+          round: convertFeet(system.movement.round),
+          run: convertFeet(system.movement.run),
+          turn: convertFeet(system.movement.turn),
+        },
+        movement2: {
+          day: convertFeet(system.movement2.day),
+          max: convertFeet(system.movement2.max),
+          round: convertFeet(system.movement2.round),
+          run: convertFeet(system.movement2.run),
+          turn: convertFeet(system.movement2.turn),
+        },
+      };
+    },
+    [`${ID}-lightRadiusConverter`]: (system, _, data) => {
+      if (data.type !== "light") {
+        return;
+      }
+      return { light: { radius: convertFeet(system.light.radius) } };
+    },
+    [`${ID}-weaponRangeConverter`]: (system, _, data) => {
+      if (data.type !== "weapon") {
+        return;
+      }
+      return {
+        range: {
+          long: convertFeet(system.range.long),
+          medium: convertFeet(system.range.medium),
+          short: convertFeet(system.range.short),
+        },
+      };
+    },
+    [`${ID}-weaponMasteryLevels`]: (original, translated, data) => {
+      if (data.type !== "weaponMastery") {
+        return;
+      }
+      const newValue = (() => {
+        if (!Array.isArray(original) || !translated) {
+          return foundry.utils.deepClone(original);
+        }
+        return original.map((data, index) => {
+          const translation = translated[`${index}`];
+          if (!translation) {
+            return foundry.utils.deepClone(data);
+          }
+          return foundry.utils.mergeObject(data, translation);
+        });
+      })();
+      if (newValue?.range?.long) {
+        newValue.range.long = convertFeet(newValue.range.long);
+      }
+      if (newValue?.range?.long) {
+        newValue.range.long = convertFeet(newValue.range.long);
+      }
+      if (newValue?.range?.long) {
+        newValue.range.long = convertFeet(newValue.range.long);
+      }
+      return newValue;
+    },
   });
 });
+
+function convertFeet(feet: number | null | undefined) {
+  return feet && (feet / 5) * 1.5;
+}
 
 function translateWithFallback(key: string, fallback: string) {
   if (game.i18n.has(key)) {
