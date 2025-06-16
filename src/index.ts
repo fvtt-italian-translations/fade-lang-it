@@ -126,14 +126,22 @@ Hooks.once("init", () => {
       if (typeof original !== "string") {
         return original;
       }
-      original = original.trim();
-      if (translatedSpellRange.includes(original)) {
+      const range = (original as string).trim();
+      if (translatedSpellRange.includes(range)) {
         return translateWithFallback(
-          `FADE_TRANSLATIONS.spellRange.${original}`,
-          original
+          `FADE_TRANSLATIONS.spellRange.${range}`,
+          range
         );
+      } else if (range.match(/^\d+'?$/)) {
+        if (range.endsWith("'")) {
+          const converted = convertFeet(+range.substring(0, range.length - 1));
+          return `${converted}'`;
+        } else {
+          const converted = convertFeet(+range);
+          return `${converted}`;
+        }
       }
-      return original;
+      return range;
     },
     [`${ID}-spellDuration`]: (original, translated) => {
       if (translated) {
