@@ -135,7 +135,7 @@ Hooks.once("init", () => {
       } else if (range.match(/^\d+'?$/)) {
         if (range.endsWith("'")) {
           const converted = convertFeet(+range.substring(0, range.length - 1));
-          return `${converted}'`;
+          return `${converted}m`;
         } else {
           const converted = convertFeet(+range);
           return `${converted}`;
