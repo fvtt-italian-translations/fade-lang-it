@@ -1,6 +1,7 @@
 import { $B, performBabeleHack } from "./babele-hack";
 import { makeFromPack } from "./converter-from-pack";
 import { removeMismatchingTypes } from "./utils";
+import fields = foundry.data.fields;
 
 export const LANG = "it";
 export const ID = "fade-lang-it";
@@ -55,6 +56,24 @@ Hooks.once("init", () => {
   if (game.i18n.lang === LANG) {
     for (const actorSize of CONFIG.FADE.ActorSizes) {
       actorSize.maxFeet = convertFeet(actorSize.maxFeet);
+    }
+
+    for (const dm of Object.values(CONFIG.Actor.dataModels)) {
+      const movement = dm.schema.fields["movement"];
+      const movement2 = dm.schema.fields["movement2"];
+      const allFields = [
+        ...(movement instanceof fields.SchemaField
+          ? Object.values(movement.fields)
+          : []),
+        ...(movement2 instanceof fields.SchemaField
+          ? Object.values(movement2.fields)
+          : []),
+      ];
+
+      for (const value of allFields) {
+        if (!(value instanceof fields.NumberField)) continue;
+        value.initial = convertFeet(value.initial);
+      }
     }
   }
 
