@@ -138,7 +138,7 @@ Hooks.once("init", () => {
           return `${converted}m`;
         } else {
           const converted = convertFeet(+range);
-          return `${converted}`;
+          return `${converted}m`;
         }
       }
       return range;
