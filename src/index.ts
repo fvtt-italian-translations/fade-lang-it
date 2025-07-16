@@ -2,6 +2,7 @@ import { $B, performBabeleHack } from "./babele-hack";
 import { makeFromPack } from "./converter-from-pack";
 import { removeMismatchingTypes } from "./utils";
 import fields = foundry.data.fields;
+import { libWrapper } from "./libwrapper";
 
 export const LANG = "it";
 export const ID = "fade-lang-it";
@@ -76,6 +77,23 @@ Hooks.once("init", () => {
       }
     }
   }
+
+  libWrapper.register(
+    "fade-lang-it",
+    "CONFIG.Item.dataModels.light.prototype.getLightSettings",
+    (wrapped, ...args) => {
+      const result: {
+        dim: number;
+        bright: number;
+      } = wrapped(...args);
+      return {
+        ...result,
+        dim: convertFeet(result.dim),
+        bright: convertFeet(result.bright),
+      };
+    },
+    "MIXED"
+  );
 
   if (foundry.utils.isNewerVersion(game.version, "13.0")) {
     Hooks.once("babele.dataLoaded", onBabeleReady);
