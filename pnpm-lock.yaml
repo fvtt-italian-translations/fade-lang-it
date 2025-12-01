@@ -23,8 +23,8 @@ importers:
         specifier: ^0.17.2
         version: 0.17.19
       foundry-types:
-        specifier: https://gitpkg.vercel.app/foundryvtt/pf2e/types/foundry?master
-        version: https://gitpkg.vercel.app/foundryvtt/pf2e/types/foundry?master
+        specifier: https://gitpkg-murex.vercel.app/foundryvtt/pf2e/types/foundry?93fd5cdd8ae5b18636124ef3b7634246e3753edc
+        version: https://gitpkg-murex.vercel.app/foundryvtt/pf2e/types/foundry?93fd5cdd8ae5b18636124ef3b7634246e3753edc
 
 packages:
 
@@ -541,8 +541,8 @@ packages:
   eventemitter3@3.1.2:
     resolution: {integrity: sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==}
 
-  foundry-types@https://gitpkg.vercel.app/foundryvtt/pf2e/types/foundry?master:
-    resolution: {tarball: https://gitpkg.vercel.app/foundryvtt/pf2e/types/foundry?master}
+  foundry-types@https://gitpkg-murex.vercel.app/foundryvtt/pf2e/types/foundry?93fd5cdd8ae5b18636124ef3b7634246e3753edc:
+    resolution: {tarball: https://gitpkg-murex.vercel.app/foundryvtt/pf2e/types/foundry?93fd5cdd8ae5b18636124ef3b7634246e3753edc}
     version: 4.4.2
 
   function-bind@1.1.2:
@@ -1174,7 +1174,7 @@ snapshots:
 
   eventemitter3@3.1.2: {}
 
-  foundry-types@https://gitpkg.vercel.app/foundryvtt/pf2e/types/foundry?master:
+  foundry-types@https://gitpkg-murex.vercel.app/foundryvtt/pf2e/types/foundry?93fd5cdd8ae5b18636124ef3b7634246e3753edc:
     dependencies:
       '@types/jquery': 3.5.32
       '@types/node': 18.19.69

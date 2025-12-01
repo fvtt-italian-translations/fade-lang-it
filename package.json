@@ -12,7 +12,7 @@
     "@types/jquery": "^3.5.31",
     "@types/node": "^18.11.18",
     "esbuild": "^0.17.2",
-    "foundry-types": "https://gitpkg.vercel.app/foundryvtt/pf2e/types/foundry?master"
+    "foundry-types": "https://gitpkg-murex.vercel.app/foundryvtt/pf2e/types/foundry?93fd5cdd8ae5b18636124ef3b7634246e3753edc"
   },
   "pnpm": {
     "packageExtensions": {
