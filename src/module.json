@@ -1,16 +1,13 @@
 {
   "id": "fade-lang-it",
   "title": "Italian Translation of Fantastic Depths",
-  "version": "0.16.0.2",
+  "version": "0.16.0.3",
   "compatibility": {
     "minimum": "11",
     "verified": "13.351",
     "maximum": "13"
   },
-  "authors": [
-    { "name": "n1xx1" },
-    { "name": "FR4NC35CO" }
-  ],
+  "authors": [{ "name": "n1xx1" }, { "name": "FR4NC35CO" }],
   "description": "",
   "languages": [
     {
