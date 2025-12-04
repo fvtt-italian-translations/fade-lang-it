@@ -76,7 +76,22 @@ const itemMappings: CompendiumMappingDefinition = {
   },
 };
 
+const macroMappings: CompendiumMappingDefinition = {
+  name: "name",
+};
+
+const rollTableMappings: CompendiumMappingDefinition = {
+  name: "name",
+  description: "description",
+  results: {
+    path: "results",
+    converter: "tableResults",
+  },
+};
+
 export const packs: Record<string, CompendiumMappingDefinition> = {
   "actor-compendium": actorMappings,
   "item-compendium": itemMappings,
+  "macro-compendium": macroMappings,
+  "roll-table-compendium": rollTableMappings,
 };
