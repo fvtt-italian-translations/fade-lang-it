@@ -1,8 +1,9 @@
 import { $B, performBabeleHack } from "./babele-hack";
 import { makeFromPack } from "./converter-from-pack";
 import { removeMismatchingTypes } from "./utils";
-import fields = foundry.data.fields;
 import { libWrapper } from "./libwrapper";
+
+import fields = foundry.data.fields;
 
 export const LANG = "it";
 export const ID = "fade-lang-it";
@@ -121,19 +122,6 @@ Hooks.once("init", () => {
       original = original.trim();
       return translateWithFallback(
         `FADE_TRANSLATIONS.monsterAlignment.${original}`,
-        original
-      );
-    },
-    [`${ID}-size`]: (original, translated) => {
-      if (translated) {
-        return translated;
-      }
-      if (typeof original !== "string") {
-        return original;
-      }
-      original = original.trim();
-      return translateWithFallback(
-        `FADE_TRANSLATIONS.monsterSize.${original}`,
         original
       );
     },

@@ -15,10 +15,6 @@ const actorMappings: CompendiumMappingDefinition = {
     path: "system.details.alignment",
     converter: `${ID}-alignment`,
   },
-  size: {
-    path: "system.details.size",
-    converter: `${ID}-size`,
-  },
   actorFeetConverter: {
     path: "system",
     converter: `${ID}-actorFeetConverter`,
