@@ -1,7 +1,7 @@
 {
   "id": "fade-lang-it",
   "title": "Italian Translation of Fantastic Depths",
-  "version": "0.16.0.5",
+  "version": "1.0.0.0",
   "compatibility": {
     "minimum": "11",
     "verified": "13.351",
@@ -30,7 +30,7 @@
         "type": "module",
         "compatibility": {
           "minimum": "0.8.6",
-          "verified": "0.16.0.2"
+          "verified": "1.0.0"
         }
       },
       {
